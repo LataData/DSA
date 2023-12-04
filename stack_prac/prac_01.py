@@ -12,6 +12,13 @@ class stack:
             return True
         else:
             return False
+    def peek(self):
+        if self.isempty()==True:
+
+            return None
+        else :
+            return self.head.data
+
     def push(self,data1):
         newnode=Node(data1)
         #incase this is the very first node
@@ -22,7 +29,7 @@ class stack:
             self.head=newnode
     def pop(self):
         if self.isempty()==True:
-
+            print("empty")
             return None
         else :
             temp=self.head
@@ -39,7 +46,7 @@ class stack:
             while(temp!=None):
                 print(temp.data)
                 temp=temp.next
-new=stack()
+'''new=stack()
 new.head=Node(5)
 new.push(7)
 new.display()
@@ -52,9 +59,12 @@ new.display()
 new.pop()
 new.pop()
 new.pop()
+print(new.peek())
 new.display()
 
 new.push(121)
 new.display()
+print("topmost elemrnt")
+print(new.peek())
 new.pop()
-new.display()
+new.display()'''
