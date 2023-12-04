@@ -8,7 +8,7 @@ class stack:
         self.head=None
     def isempty(self):
         if self.head==None:
-            print("stack is empty....\n")
+            #print("stack is empty....\n")
             return True
         else:
             return False
@@ -29,19 +29,21 @@ class stack:
             self.head=newnode
     def pop(self):
         if self.isempty()==True:
-            print("empty")
+            #print("empty")
             return None
         else :
             temp=self.head
             self.head=temp.next
             temp.next=None
+            return temp.data
             print("Item deleted",temp.data)
-            print("\n")
+            #print("\n")
     def display(self):
         if self.isempty():
-            print("stack is empty!!!")
+            #print("stack is empty!!!")
+            return False
         else:
-            print("items present in stack")
+            #print("items present in stack")
             temp=self.head
             while(temp!=None):
                 print(temp.data)

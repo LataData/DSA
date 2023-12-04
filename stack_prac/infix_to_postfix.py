@@ -14,6 +14,16 @@ class postfix:
         print("display...")
         h.display()
         print("top...",self.top)
+    def notGreater(self,i,head):
+        try: 
+            if self.precedence[i]<=self.precedence[head.peek()]:
+                return True
+            else:
+                return False
+        except KeyError:
+            return False
+            
+
     def conversion(self,expression):
         head=s()
         for i in expression:
@@ -25,23 +35,25 @@ class postfix:
                 while (not head.isempty()) and (head.peek!='('):
                     a=head.pop()
                     self.output.append(a)
-                if (not self.isempty() and self.peek() != '('):
+                if (not head.isempty() and head.peek() != '('):
                     return -1
                 else:
                     head.pop()
             else:
                 while(not head.isempty() and \
-                      self.precedence[i]<=self.precedence[head.peek()]):
-                    self.output.append(self.pop())
+                      self.notGreater(i,head)):
+                    self.output.append(head.pop())
                 head.push(i)
-            head.display()
-            for ch in self.output:
-                print(ch, end="")
+        while not head.isempty():
+            self.output.append(head.pop())
+        for ch in self.output:
+            print(ch, end="")
 
 
 
 p=postfix()
 #p.test()
-exp = "a+b*(c^d-e)^(f+g*h)-i"
+exp = "a+b*c"
+exp2="a+b*(c^d-e)^(f+g*h)-i"
 
-p.conversion(exp)
+p.conversion(exp2)
