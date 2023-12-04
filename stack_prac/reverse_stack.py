@@ -12,7 +12,7 @@ def reverse(h):
     else:
         return m
 
-'''h.push(7)
+h.push(7)
 h.push(8)
 h.push(9)
 reverse(h)
@@ -20,4 +20,4 @@ reverse(h)
 
 while not m.isempty():
     print(m.head.data)
-    m.pop()'''
+    m.pop()
